@@ -53,6 +53,7 @@ function NewFeeds() {
 
                                     <Link href={`articles/${article.slug}`}>
                                         <Heading
+                                            cursor="pointer"
                                             mb="1"
                                             as="h3"
                                             fontSize={["18px", "30px"]}
@@ -119,6 +120,7 @@ function NewFeeds() {
                                     </Flex>
                                 </Box>
                                 <Flex
+                                    cursor="pointer"
                                     flexBasis="30%"
                                     alignItems="center"
                                     justifyContent="center"

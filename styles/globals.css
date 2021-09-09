@@ -22,3 +22,7 @@ a {
 .border-green {
   border: 2px var(--chakra-colors-green-500) solid !important;
 }
+
+.logo {
+  cursor: pointer;
+}
