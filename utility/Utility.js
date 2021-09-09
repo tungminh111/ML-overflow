@@ -17,7 +17,8 @@ console.log("Utility executed");
 
 const Utility = {
   val: 1,
-
+  MAX_LENGTH_DESCRIPTION: 100,
+  MAX_LENGTH_TITLE: 80,
   formatTime: function (date) {
     let hour = date.getHours();
     hour = hour < 10 ? "0" + hour.toString() : hour.toString();

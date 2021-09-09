@@ -14,3 +14,11 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.round-image {
+  border-radius: 50%;
+}
+
+.border-green {
+  border: 2px var(--chakra-colors-green-500) solid !important;
+}
