@@ -6,10 +6,12 @@ export const getArticles = () => {
     for (let i = 0; i < length; i++) {
         articles.push({
             id: faker.datatype.uuid(),
+            slug: faker.datatype.uuid(),
             title: faker.lorem.sentence(),
-            description: faker.lorem.paragraph(),
+            description: faker.lorem.sentence(),
+            content: faker.lorem.paragraphs(),
             image: faker.image.image(),
-            user: {
+            author: {
                 name: faker.name.findName(),
                 avatar: faker.image.avatar(),
             },

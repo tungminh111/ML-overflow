@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Box, Text } from "@chakra-ui/layout";
 import { useRouter } from "next/router";
 import NavBar from "../components/NavBar";
+import Link from "next/link";
 
 import defaultImg from "../public/default-image.png";
 import saveIcon from "../public/save.svg";
@@ -36,7 +37,7 @@ function NewFeeds() {
                                 <Box flexBasis="70%" mr={["2", "10"]}>
                                     <Flex>
                                         <Image
-                                            src={article.user.avatar}
+                                            src={article.author.avatar}
                                             alt="Picture of the author"
                                             width={25}
                                             height={25}
@@ -46,22 +47,25 @@ function NewFeeds() {
                                             ml="3"
                                             fontSize={["14px", "20px"]}
                                         >
-                                            {article.user.name}
+                                            {article.author.name}
                                         </Text>
                                     </Flex>
-                                    <Heading
-                                        mb="1"
-                                        as="h3"
-                                        fontSize={["18px", "30px"]}
-                                    >
-                                        {article.title.length >
-                                        Utility.MAX_LENGTH_TITLE
-                                            ? article.title.substring(
-                                                  0,
-                                                  Utility.MAX_LENGTH_TITLE
-                                              ) + "..."
-                                            : article.title}
-                                    </Heading>
+
+                                    <Link href={`articles/${article.slug}`}>
+                                        <Heading
+                                            mb="1"
+                                            as="h3"
+                                            fontSize={["18px", "30px"]}
+                                        >
+                                            {article.title.length >
+                                            Utility.MAX_LENGTH_TITLE
+                                                ? article.title.substring(
+                                                      0,
+                                                      Utility.MAX_LENGTH_TITLE
+                                                  ) + "..."
+                                                : article.title}
+                                        </Heading>
+                                    </Link>
                                     {!isSmallerThan1280 && (
                                         <Text
                                             mb="5"
@@ -119,12 +123,14 @@ function NewFeeds() {
                                     alignItems="center"
                                     justifyContent="center"
                                 >
-                                    <Image
-                                        src={article.image}
-                                        width={300}
-                                        height={200}
-                                        alt="Picture of the author"
-                                    />
+                                    <Link href={`articles/${article.slug}`}>
+                                        <Image
+                                            src={article.image}
+                                            width={300}
+                                            height={200}
+                                            alt="Picture of article"
+                                        />
+                                    </Link>
                                 </Flex>
                             </Flex>
                         </Box>

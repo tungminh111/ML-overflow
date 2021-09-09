@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import logo from "../public/logo.svg";
 import faker from "faker/locale/en";
+import Link from "next/link";
 
 function NavBar() {
     return (
@@ -14,7 +15,9 @@ function NavBar() {
                 alignItems="center"
             >
                 <Box flex="1">
-                    <Image src={logo} alt="Logo" width={162} height={25} />
+                    <Link href="/">
+                        <Image src={logo} alt="Logo" width={162} height={25} />
+                    </Link>
                 </Box>
                 <Flex alignItems="center">
                     <Button
