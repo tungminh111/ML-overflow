@@ -10,14 +10,14 @@ import {
   VStack,
 } from "@chakra-ui/react";
 
-function UserInfoHeader() {
+function UserInfoHeader(props) {
+  let data = props.data;
   return (
     <VStack>
       <Flex paddingX="110px" paddingTop="20px" w="100vw" h="15vh" mb="-20px">
         <HStack>
           <Heading size="lg" paddingBottom="10px">
-            {" "}
-            Minh Nguyen{" "}
+            {data.name}
           </Heading>
           <Spacer />
           <Text> 3000 Followers </Text>

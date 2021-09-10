@@ -1,6 +1,6 @@
 import { VStack, Image, Button, Text, Heading, Spacer } from "@chakra-ui/react";
 
-function UserInfoAvatar() {
+function UserInfoAvatar(props) {
   return (
     <VStack
       position="sticky"
@@ -15,7 +15,7 @@ function UserInfoAvatar() {
         alt="Segun Adebayo"
       />
       <Spacer />
-      <Heading size="sm"> Minh Nguyen </Heading>
+      <Heading size="sm"> {props.name} </Heading>
       <Spacer />
       <Button borderRadius="40px"> Follow </Button>
     </VStack>

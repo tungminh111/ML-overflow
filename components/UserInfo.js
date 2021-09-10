@@ -3,19 +3,19 @@ import UserInfoHeader from "./UserInfoHeader";
 import UserInfoAvatar from "./UserInfoAvatar";
 import ArticleOverviewItem from "./ArticleOverviewItem";
 
-function UserInfoPage() {
-  let list = [1, 2, 3, 4, 5];
+function UserInfoPage(props) {
+  let data = props.data;
   return (
     <VStack>
-      <UserInfoHeader />
+      <UserInfoHeader data={data} />
       <Flex>
         <VStack w="20vw" paddingStart="3vw">
-          <UserInfoAvatar />
+          <UserInfoAvatar data={data} />
         </VStack>
         <VStack w="80vw" h="150vh" align="start" paddingX="7vw">
-          {list.map((i) => (
-            <Box key={i}>
-              <ArticleOverviewItem w="60vw"  />
+          {data.article.map((article) => (
+            <Box key={article.id}>
+              <ArticleOverviewItem w="60vw" data={article} />
               <Divider />
             </Box>
           ))}
