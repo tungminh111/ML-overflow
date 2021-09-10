@@ -2,6 +2,13 @@ import { extendTheme } from "@chakra-ui/react";
 
 const theme = extendTheme({
   components: {
+    Modal: {
+      baseStyle: (props) => ({
+        dialog: {
+          borderRadius: props.size === "full" ? "0" : "md"
+        }
+      })
+    },
     Badge: {
       sizes: {
         lg: {
