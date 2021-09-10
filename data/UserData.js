@@ -3,46 +3,27 @@ import Utility from "../utility/Utility";
 const test_data = () => {
   return [
     {
-      id: 1,
-      title: "Take the insurance card",
-      description:
-        "Ask miss Thao for more information. After that go to the medical department for the card",
-      place: "ZPS office",
-      time: Utility.formatTime(new Date(2021, 7, 13)),
-      category: "Work",
-      priority: "Low",
-    },
-    {
-      id: 2,
-      title: "Database Design",
-      description: "Design a database system for Farm 3D",
-      place: "ZPS office",
-      time: Utility.formatTime(new Date(2021, 7, 13)),
-      category: "Life",
-      priority: "High",
+      username: "minhnguyen",
+      title: "Student at VNU",
+      link: "google.com",
+      article: [
+        {
+          title: "Title 1 - Something",
+          body: "Body 1 - Something",
+          likes: 3000,
+          comments: 300,
+        },
+        {
+          title: "Title 2 - Something",
+          body: "Body 2 - Something",
+          likes: 2000,
+          comments: 200,
+        },
+      ],
     },
   ];
 };
 
-const UserData = {
-  userId: "",
-
-  getUserId() {
-    return this.userId;
-  },
-
-  setUserId: function (id) {
-    this.userId = id;
-  },
-
-  getListTasks: async function () {
-    return test_data();
-  },
-
-  getTaskData: async function (taskId) {
-    let data = test_data();
-    return data.find((task) => task.id === parseInt(taskId));
-  },
-};
+const UserData = {};
 
 export default UserData;
