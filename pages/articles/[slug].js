@@ -146,7 +146,7 @@ export async function getServerSideProps({ params }) {
         // content += `${faker.lorem.paragraphs()}`;
         if (i != numP - 1) {
             content += "<br/>";
-            content += `<img src="${faker.image.image()}" alt="content"/>`;
+            content += `<img src="${faker.image.image()}" alt="content"/><br/>`;
         }
     }
     const article = {
