@@ -4,6 +4,7 @@ const test_data = () => {
   return [
     {
       name: "Minh Nguyen",
+      avatar: "https://bit.ly/sage-adebayo",
       followers: 322,
       username: "minhnguyen",
       title: "Student at VNU",

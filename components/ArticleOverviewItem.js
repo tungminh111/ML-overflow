@@ -9,6 +9,7 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import { AiOutlineLike } from "react-icons/ai";
+import clapIcon from "../public/clap.svg";
 
 function ArticleOverviewItem(props) {
   let data = props.data;
