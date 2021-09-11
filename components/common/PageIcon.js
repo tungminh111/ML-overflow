@@ -1,11 +1,11 @@
-import { Image } from "@chakra-ui/react";
-import clapIcon from "../../public/clap.svg";
+import clapIcon from "../../public/vkminh.jpeg";
+import Image from "next/image";
 
 function PageIcon(props) {
   return (
     <Image
-      width={25}
-      height={25}
+      width={40}
+      height={40}
       src={clapIcon}
       alt="MLOverflower"
       {...props}
