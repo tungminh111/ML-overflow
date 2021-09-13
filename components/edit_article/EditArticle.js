@@ -20,7 +20,9 @@ function EditArticle(props) {
     <VStack>
       <EditArticleHeader w="70vw" data={props.userData} />
       <VStack w="70vw">
-        <Editor text={title} onChange={(text, medium) => setTitle(text)} />
+        <Editor style={{
+          width: "100%"
+        }} text={title} onChange={(text, medium) => setTitle(text)} />
       </VStack>
     </VStack>
   );
