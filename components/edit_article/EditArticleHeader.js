@@ -12,7 +12,7 @@ import {
   Image,
 } from "@chakra-ui/react";
 
-import PageIcon from "../common/PageIcon";
+import Logo from "../common/Logo";
 import { BsThreeDots } from "react-icons/bs";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import ImageButton from "../common/ImageButton";
@@ -23,7 +23,7 @@ function EditArticleHeader(props) {
     <VStack {...props}>
       <Flex w="100%" py="3vh">
         <HStack>
-          <PageIcon />
+          <Logo />
           <Text> {"draft in @".replace("@", data.name)} </Text>
         </HStack>
         <Spacer />

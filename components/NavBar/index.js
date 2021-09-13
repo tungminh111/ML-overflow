@@ -20,6 +20,7 @@ import Link from "next/link";
 import { useMediaQuery } from "@chakra-ui/react";
 import SignInOptions from "./SignInOptions";
 import LoginByUsername from "./LoginByUsername";
+import Logo from "../common/Logo";
 
 const isLoggedIn = false;
 function NavBar() {
@@ -46,7 +47,7 @@ function NavBar() {
             >
                 <Box flex="1">
                     <Link href="/">
-                        <Image className="logo" src={logo} alt="Logo" width={162} height={25}/>
+                        <Logo />
                     </Link>
                 </Box>
                 {isLoggedIn ? (

@@ -1,13 +1,13 @@
 import React from "react";
 import { Box, Flex, Heading, Text } from "@chakra-ui/layout";
 import faker from "faker/locale/en";
-import NavBar from "../../components/NavBar";
+import NavBar from "../../../components/NavBar";
 import Image from "next/image";
 import { Button } from "@chakra-ui/react";
 
-import clapIcon from "../../public/clap.svg";
-import saveIcon from "../../public/save.svg";
-import optionsIcon from "../../public/options.svg";
+import clapIcon from "../../../public/clap.svg";
+import saveIcon from "../../../public/save.svg";
+import optionsIcon from "../../../public/options.svg";
 
 function ArticleDetail({ article }) {
     return (
