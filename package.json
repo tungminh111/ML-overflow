@@ -13,12 +13,12 @@
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
     "framer-motion": "^4.1.17",
+    "medium-editor": "^5.23.3",
     "next": "11.0.1",
     "react": "17.0.2",
     "react-datepicker": "^4.1.1",
     "react-dom": "17.0.2",
-    "react-icons": "^4.2.0",
-    "react-medium-editor": "^1.8.1"
+    "react-icons": "^4.2.0"
   },
   "devDependencies": {
     "eslint": "7.30.0",

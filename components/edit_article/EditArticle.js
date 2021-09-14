@@ -2,30 +2,30 @@ import {
   Input,
   Textarea,
   InputGroup,
+  Flex,
   VStack,
   InputLeftAddon,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-require("medium-editor/dist/css/medium-editor.css");
-require("medium-editor/dist/css/themes/default.css");
-
-import Editor from "react-medium-editor";
+import MediumEditor from "medium-editor";
 import EditArticleHeader from "./EditArticleHeader";
 
-function EditArticle(props) {
-  const [title, setTitle] = useState("");
+class EditArticle extends React.Component {
+  componentDidMount() {
+    const editor = new MediumEditor(".medium-editable", {});
+  }
 
-  return (
-    <VStack>
-      <EditArticleHeader w="70vw" data={props.userData} />
-      <VStack w="70vw">
-        <Editor style={{
-          width: "100%"
-        }} text={title} onChange={(text, medium) => setTitle(text)} />
-      </VStack>
-    </VStack>
-  );
+  render() {
+    return (
+      <Flex flexDir="column" w="70vw" ms="15vw">
+        <EditArticleHeader data={this.props.userData} />
+        <div>
+          <textarea id="medium-editable" className="medium-editable" />
+        </div>
+      </Flex>
+    );
+  }
 }
 
 export default EditArticle;
