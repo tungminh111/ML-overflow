@@ -9,10 +9,10 @@ function UserInfoPage(props) {
     <VStack>
       <UserInfoHeader data={data} />
       <Flex>
-        <VStack w="20vw" paddingStart="3vw">
+        <VStack paddingStart="3vw">
           <UserInfoAvatar data={data} />
         </VStack>
-        <VStack w="80vw" h="150vh" align="start" paddingX="7vw">
+        <VStack maxW="80vw" h="150vh" align="start" paddingX="7vw">
           {data.article.map((article) => (
             <Box key={article.id}>
               <ArticleOverviewItem w="60vw" data={article} />

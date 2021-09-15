@@ -7,14 +7,10 @@ function UserInfoAvatar(props) {
       position="sticky"
       paddingStart="20%"
       top="101"
-      paddingY="60px"
+      paddingY={40}
       align="start"
     >
-      <Image
-        src="https://bit.ly/sage-adebayo"
-        boxSize="120px"
-        alt="Segun Adebayo"
-      />
+      <Image src={data.avatar} boxSize={200} alt="Segun Adebayo" />
       <Spacer />
       <Heading size="sm"> {data.name} </Heading>
       <Spacer />
