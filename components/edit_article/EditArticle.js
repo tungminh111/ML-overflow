@@ -43,15 +43,33 @@ class EditArticle extends React.Component {
         buttons: ['bold', 'italic']
       } */
     });
+    editor.subscribe("editableInput", (ev, editable) => {
+      if (typeof document !== "undefined") {
+        this.setState({
+          content: editor.elements[0].getElementsByTagName("p")[0],
+        });
+      }
+      console.log(this.state);
+    });
   }
 
   render() {
     return (
       <Flex flexDir="column" w="70vw" ms="15vw">
-        <EditArticleHeader data={props.userData} />
-        <div>
-          <textarea id="medium-editable" className="medium-editable" />
-        </div>
+        <EditArticleHeader data={this.props.userData} />
+        <Flex flexDir="column" w="70%" mx="15%">
+          <Input
+            fontWeight="bold"
+            placeholder="Title"
+            variant="unstyled"
+            fontSize={30}
+            height={100}
+            onChange={(e) => this.setState({ title: e.target.value })}
+          />
+          <div>
+            <textarea id="medium-editable" className="medium-editable" />
+          </div>
+        </Flex>
       </Flex>
     );
   }
