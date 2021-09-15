@@ -48,7 +48,7 @@ class EditArticle extends React.Component {
   render() {
     return (
       <Flex flexDir="column" w="70vw" ms="15vw">
-        <EditArticleHeader data={this.props.userData} />
+        <EditArticleHeader data={props.userData} />
         <div>
           <textarea id="medium-editable" className="medium-editable" />
         </div>
