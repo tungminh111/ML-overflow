@@ -13,6 +13,7 @@ const test_data = () => {
         {
           id: "1",
           date: "11 Jan",
+          author: "Minh Nguyen",
           title: "Title 1 - Something",
           body: "Body 1 - Something",
           likes: 3000,
@@ -22,6 +23,7 @@ const test_data = () => {
         {
           id: "2",
           date: "2 Sep",
+          author: "Minh Nguyen",
           title: "Title 2 - Something",
           body: "Body 2 - Something",
           likes: 2000,

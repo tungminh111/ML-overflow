@@ -10,6 +10,8 @@ import {
   VStack,
 } from "@chakra-ui/react";
 
+import Logo from "./common/Logo";
+
 function UserInfoHeader(props) {
   let data = props.data;
   return (
@@ -36,7 +38,7 @@ function UserInfoHeader(props) {
             {" "}
             Get started{" "}
           </Button>
-          <IconButton />
+          <Logo />
         </HStack>
       </Flex>
       <Divider h="10px" />
