@@ -40,7 +40,7 @@ function NavBar() {
 
     return (
         <Flex justifyContent="center" boxShadow="md">
-            <Box maxWidth="1192px" width="100%" mx={["22", "50", "70", "130"]}>
+            <Box maxWidth="1192px" width="100%" mx={["22", "50", "70"]}>
                 <Flex height="20" alignItems="center">
                     <Box flex="1">
                         <Link href="/">

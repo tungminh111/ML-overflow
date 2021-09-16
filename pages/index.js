@@ -50,7 +50,9 @@ function NewFeeds() {
                                     <Tab textColor="black" fontSize="13px">
                                         RECOMMENDED FOR YOU
                                     </Tab>
-                                    <Tab textColor="black" fontSize="13px">FOLLOWING</Tab>
+                                    <Tab textColor="black" fontSize="13px">
+                                        FOLLOWING
+                                    </Tab>
                                 </TabList>
 
                                 <TabPanels>
