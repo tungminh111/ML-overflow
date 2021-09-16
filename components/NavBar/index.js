@@ -39,64 +39,64 @@ function NavBar() {
     );
 
     return (
-        <Box boxShadow="md" mb="5">
-            <Flex
-                height="20"
-                mx={["22", "50", "70", "130"]}
-                alignItems="center"
-            >
-                <Box flex="1">
-                    <Link href="/">
-                        <Logo />
-                    </Link>
-                </Box>
-                {isLoggedIn ? (
-                    <Flex alignItems="center">
-                        <Button
-                            size="md"
-                            height="40px"
-                            border="2px"
-                            borderColor="green.500"
-                            color="green.500"
-                            borderRadius="20"
-                            mr="4"
-                        >
-                            Write
-                        </Button>
-                        <Image
-                            className="round-image border-green"
-                            src={faker.image.image()}
-                            width={40}
-                            height={40}
-                        />
-                    </Flex>
-                ) : (
-                    <Flex alignItems="center">
-                        <Button
-                            size="md"
-                            height="40px"
-                            color="white"
-                            bg="black"
-                            borderRadius="20"
-                            onClick={onOpen}
-                        >
-                            Sign in
-                        </Button>
-                    </Flex>
-                )}
-            </Flex>
-            <Modal
-                isOpen={isOpen}
-                onClose={onClose}
-                size={isSmallerThan1280 ? "full" : "xl"}
-            >
-                <ModalOverlay />
-                <ModalContent>
-                    <ModalCloseButton />
-                    <ModalBody p="50">{modalScreens[activeScreen]}</ModalBody>
-                </ModalContent>
-            </Modal>
-        </Box>
+        <Flex justifyContent="center" boxShadow="md">
+            <Box maxWidth="1192px" width="100%" mx={["22", "50", "70", "130"]}>
+                <Flex height="20" alignItems="center">
+                    <Box flex="1">
+                        <Link href="/">
+                            <Logo />
+                        </Link>
+                    </Box>
+                    {isLoggedIn ? (
+                        <Flex alignItems="center">
+                            <Button
+                                size="md"
+                                height="40px"
+                                border="2px"
+                                borderColor="green.500"
+                                color="green.500"
+                                borderRadius="20"
+                                mr="4"
+                            >
+                                Write
+                            </Button>
+                            <Image
+                                className="round-image border-green"
+                                src={faker.image.image()}
+                                width={40}
+                                height={40}
+                            />
+                        </Flex>
+                    ) : (
+                        <Flex alignItems="center">
+                            <Button
+                                size="md"
+                                height="40px"
+                                color="white"
+                                bg="black"
+                                borderRadius="20"
+                                onClick={onOpen}
+                            >
+                                Sign in
+                            </Button>
+                        </Flex>
+                    )}
+                </Flex>
+                <Modal
+                    isOpen={isOpen}
+                    onClose={onClose}
+                    size={isSmallerThan1280 ? "full" : "xl"}
+                >
+                    <ModalOverlay />
+                    <ModalContent>
+                        <ModalCloseButton />
+                        <ModalBody p="50">
+                            {modalScreens[activeScreen]}
+                        </ModalBody>
+                    </ModalContent>
+                </Modal>
+            </Box>
+        </Flex>
     );
 }
 

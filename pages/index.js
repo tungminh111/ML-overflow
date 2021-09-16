@@ -1,4 +1,15 @@
-import { VStack, Heading, Flex, AspectRatio, Button } from "@chakra-ui/react";
+import {
+    VStack,
+    Heading,
+    Flex,
+    AspectRatio,
+    Button,
+    Tabs,
+    TabList,
+    TabPanels,
+    Tab,
+    TabPanel,
+} from "@chakra-ui/react";
 import { useMediaQuery } from "@chakra-ui/react";
 import Image from "next/image";
 import { Box, Text } from "@chakra-ui/layout";
@@ -17,6 +28,7 @@ function NewFeeds() {
     let router = useRouter();
 
     const [isSmallerThan1280] = useMediaQuery("(max-width: 1280px)");
+    const [isSmallerThan480] = useMediaQuery("(max-width: 480px)");
 
     const articles = useMemo(() => {
         const articles = getArticles();
@@ -26,119 +38,274 @@ function NewFeeds() {
     return (
         <Box>
             <NavBar />
-            <Box mx={["22", "50", "70", "130"]}>
-                <Heading as="h2" fontSize={["18px", "23px"]} mb="5">
-                    RECOMMENDED FOR YOU
-                </Heading>
-                <Box className="list-article">
-                    {articles.map((article) => (
-                        <Box key={article.id} className="single-article" mb="8">
-                            <Flex>
-                                <Box flexBasis="70%" mr={["2", "10"]}>
-                                    <Flex>
-                                        <Image
-                                            src={article.author.avatar}
-                                            alt="Picture of the author"
-                                            width={25}
-                                            height={25}
-                                            className="round-image"
-                                        />
-                                        <Text
-                                            ml="3"
-                                            fontSize={["14px", "20px"]}
-                                        >
-                                            {article.author.name}
-                                        </Text>
-                                    </Flex>
+            <Flex justifyContent="center">
+                <Box mx={["22", "50", "70", "90"]} maxWidth="1192px">
+                    <Flex flexDirection="row">
+                        <Box
+                            flexBasis={isSmallerThan480 ? "100%" : "65%"}
+                            mt="5"
+                        >
+                            <Tabs>
+                                <TabList>
+                                    <Tab textColor="black" fontSize="13px">
+                                        RECOMMENDED FOR YOU
+                                    </Tab>
+                                    <Tab textColor="black" fontSize="13px">FOLLOWING</Tab>
+                                </TabList>
 
-                                    <Link href={`articles/${article.slug}`}>
-                                        <Heading
-                                            cursor="pointer"
-                                            mb="1"
-                                            as="h3"
-                                            fontSize={["18px", "30px"]}
+                                <TabPanels>
+                                    <TabPanel>
+                                        <Box className="list-article">
+                                            {articles.map((article) => (
+                                                <Box
+                                                    key={article.id}
+                                                    className="single-article"
+                                                    mb="8"
+                                                >
+                                                    <Flex>
+                                                        <Box
+                                                            flexBasis="70%"
+                                                            mr={["2", "10"]}
+                                                        >
+                                                            <Flex>
+                                                                <Image
+                                                                    src={
+                                                                        article
+                                                                            .author
+                                                                            .avatar
+                                                                    }
+                                                                    alt="Picture of the author"
+                                                                    width={16}
+                                                                    height={16}
+                                                                    className="round-image"
+                                                                />
+                                                                <Text
+                                                                    ml="3"
+                                                                    fontSize={[
+                                                                        "13px",
+                                                                    ]}
+                                                                >
+                                                                    {
+                                                                        article
+                                                                            .author
+                                                                            .name
+                                                                    }
+                                                                </Text>
+                                                            </Flex>
+
+                                                            <Link
+                                                                href={`articles/${article.slug}`}
+                                                            >
+                                                                <Heading
+                                                                    cursor="pointer"
+                                                                    mb="1"
+                                                                    as="h3"
+                                                                    fontSize={[
+                                                                        "18px",
+                                                                        "22px",
+                                                                    ]}
+                                                                >
+                                                                    {article
+                                                                        .title
+                                                                        .length >
+                                                                    Utility.MAX_LENGTH_TITLE
+                                                                        ? article.title.substring(
+                                                                              0,
+                                                                              Utility.MAX_LENGTH_TITLE
+                                                                          ) +
+                                                                          "..."
+                                                                        : article.title}
+                                                                </Heading>
+                                                            </Link>
+                                                            {!isSmallerThan1280 && (
+                                                                <Text
+                                                                    mb="5"
+                                                                    fontSize={[
+                                                                        "14px",
+                                                                        "16px",
+                                                                    ]}
+                                                                >
+                                                                    {article
+                                                                        .description
+                                                                        .length >
+                                                                    Utility.MAX_LENGTH_DESCRIPTION
+                                                                        ? article.description.substring(
+                                                                              0,
+                                                                              Utility.MAX_LENGTH_DESCRIPTION
+                                                                          ) +
+                                                                          "..."
+                                                                        : article.description}
+                                                                </Text>
+                                                            )}
+                                                            <Flex justifyContent="space-between">
+                                                                <Flex>
+                                                                    <Text
+                                                                        mr={[
+                                                                            "1",
+                                                                            "3",
+                                                                        ]}
+                                                                        fontSize={[
+                                                                            "13px",
+                                                                        ]}
+                                                                    >
+                                                                        Mar 17
+                                                                    </Text>
+                                                                    <Text
+                                                                        mr={[
+                                                                            "1",
+                                                                            "3",
+                                                                        ]}
+                                                                        fontSize={[
+                                                                            "13px",
+                                                                        ]}
+                                                                    >
+                                                                        6 min
+                                                                        read
+                                                                    </Text>
+                                                                    <Box
+                                                                        fontSize={[
+                                                                            "13px",
+                                                                        ]}
+                                                                    >
+                                                                        Programing
+                                                                    </Box>
+                                                                </Flex>
+                                                                <Flex>
+                                                                    <Box
+                                                                        cursor="pointer"
+                                                                        pt="2px"
+                                                                    >
+                                                                        <Image
+                                                                            src={
+                                                                                saveIcon
+                                                                            }
+                                                                            alt="save icon"
+                                                                            width={
+                                                                                20
+                                                                            }
+                                                                            height={
+                                                                                20
+                                                                            }
+                                                                        />
+                                                                    </Box>
+                                                                    <Box
+                                                                        cursor="pointer"
+                                                                        pt="2px"
+                                                                    >
+                                                                        <Image
+                                                                            src={
+                                                                                optionsIcon
+                                                                            }
+                                                                            alt="option icon"
+                                                                            width={
+                                                                                20
+                                                                            }
+                                                                            height={
+                                                                                20
+                                                                            }
+                                                                        />
+                                                                    </Box>
+                                                                </Flex>
+                                                            </Flex>
+                                                        </Box>
+                                                        <Flex
+                                                            cursor="pointer"
+                                                            flexBasis="30%"
+                                                            alignItems="center"
+                                                            justifyContent="center"
+                                                        >
+                                                            <Link
+                                                                href={`articles/${article.slug}`}
+                                                            >
+                                                                <Image
+                                                                    src={
+                                                                        article.image
+                                                                    }
+                                                                    width={300}
+                                                                    height={200}
+                                                                    alt="Picture of article"
+                                                                />
+                                                            </Link>
+                                                        </Flex>
+                                                    </Flex>
+                                                </Box>
+                                            ))}
+                                        </Box>
+                                    </TabPanel>
+                                    <TabPanel></TabPanel>
+                                </TabPanels>
+                            </Tabs>
+                        </Box>
+                        {!isSmallerThan480 && (
+                            <>
+                                <Box
+                                    minHeight="100vh"
+                                    ml="40px"
+                                    mr="40px"
+                                    borderRight="1px solid rgba(230, 230, 230, 1)"
+                                ></Box>
+                                <Box flexBasis="30%" mt="5">
+                                    <Text fontWeight="bold" mb="4">
+                                        Recommended topics
+                                    </Text>
+                                    <Flex flexFlow="wrap">
+                                        <Box
+                                            bg="blackAlpha.100"
+                                            px="4"
+                                            py="1"
+                                            borderRadius="100px"
+                                            mr="3"
+                                            mb="3"
                                         >
-                                            {article.title.length >
-                                            Utility.MAX_LENGTH_TITLE
-                                                ? article.title.substring(
-                                                      0,
-                                                      Utility.MAX_LENGTH_TITLE
-                                                  ) + "..."
-                                                : article.title}
-                                        </Heading>
-                                    </Link>
-                                    {!isSmallerThan1280 && (
-                                        <Text
-                                            mb="5"
-                                            fontSize={["14px", "20px"]}
+                                            Software Development
+                                        </Box>
+                                        <Box
+                                            bg="blackAlpha.100"
+                                            px="4"
+                                            py="1"
+                                            borderRadius="100px"
+                                            mr="3"
+                                            mb="3"
                                         >
-                                            {article.description.length >
-                                            Utility.MAX_LENGTH_DESCRIPTION
-                                                ? article.description.substring(
-                                                      0,
-                                                      Utility.MAX_LENGTH_DESCRIPTION
-                                                  ) + "..."
-                                                : article.description}
-                                        </Text>
-                                    )}
-                                    <Flex justifyContent="space-between">
-                                        <Flex>
-                                            <Text
-                                                mr={["1", "3"]}
-                                                fontSize={["14px", "20px"]}
-                                            >
-                                                Mar 17
-                                            </Text>
-                                            <Text
-                                                mr={["1", "3"]}
-                                                fontSize={["14px", "20px"]}
-                                            >
-                                                6 min read
-                                            </Text>
-                                            <Box fontSize={["14px", "20px"]}>
-                                                Programing
-                                            </Box>
-                                        </Flex>
-                                        <Flex>
-                                            <Box cursor="pointer" pt="2px">
-                                                <Image
-                                                    src={saveIcon}
-                                                    alt="save icon"
-                                                    width={20}
-                                                    height={20}
-                                                />
-                                            </Box>
-                                            <Box cursor="pointer" pt="2px">
-                                                <Image
-                                                    src={optionsIcon}
-                                                    alt="option icon"
-                                                    width={20}
-                                                    height={20}
-                                                />
-                                            </Box>
-                                        </Flex>
+                                            Programming
+                                        </Box>
+                                        <Box
+                                            bg="blackAlpha.100"
+                                            px="4"
+                                            py="1"
+                                            borderRadius="100px"
+                                            mr="3"
+                                            mb="3"
+                                        >
+                                            Technology
+                                        </Box>
+                                        <Box
+                                            bg="blackAlpha.100"
+                                            px="4"
+                                            py="1"
+                                            borderRadius="100px"
+                                            mr="3"
+                                            mb="3"
+                                        >
+                                            Carrers
+                                        </Box>
+                                        <Box
+                                            bg="blackAlpha.100"
+                                            px="4"
+                                            py="1"
+                                            borderRadius="100px"
+                                            mr="3"
+                                            mb="3"
+                                        >
+                                            Grouth
+                                        </Box>
                                     </Flex>
                                 </Box>
-                                <Flex
-                                    cursor="pointer"
-                                    flexBasis="30%"
-                                    alignItems="center"
-                                    justifyContent="center"
-                                >
-                                    <Link href={`articles/${article.slug}`}>
-                                        <Image
-                                            src={article.image}
-                                            width={300}
-                                            height={200}
-                                            alt="Picture of article"
-                                        />
-                                    </Link>
-                                </Flex>
-                            </Flex>
-                        </Box>
-                    ))}
+                            </>
+                        )}
+                    </Flex>
                 </Box>
-            </Box>
+            </Flex>
         </Box>
     );
 }
