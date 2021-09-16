@@ -1,28 +1,73 @@
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+        Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .round-image {
-  border-radius: 50%;
+    border-radius: 50%;
 }
 
 .border-green {
-  border: 2px var(--chakra-colors-green-500) solid !important;
+    border: 2px var(--chakra-colors-green-500) solid !important;
 }
 
 .logo {
-  cursor: pointer;
+    cursor: pointer;
+}
+
+.medium-editable:focus {
+    outline: none;
+}
+.medium-editable p {
+  margin-bottom: 29px;
+  font-size: 21px;
+}
+
+.medium-editable blockquote {
+  border-left: 6px solid black;
+  padding-left: 10px;
+  margin-left: -15px;
+}
+
+.medium-editable h2, h3 {
+  margin-bottom: 29px;
+  font-weight: bold;
+}
+
+.medium-editable h2 {
+  font-size: 28px;
+}
+
+.medium-editable h3 {
+  font-size: 24px;
+}
+
+.title-edit:focus {
+  outline: none;
+}
+
+.title-edit[contenteditable]:empty::before {
+  content: "Title";
+  color: gray;
+}
+
+.medium-editable img {
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+.medium-editor-placeholder:after {
+  font-size: 21px;
 }
